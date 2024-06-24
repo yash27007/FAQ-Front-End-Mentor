@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "Work Sans";
+  font-display: swap;
+  font-family: 100 900;
+  src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf") format('truetype');
+}
+
+:root {
+  /* Initializing the colors */
+  --clr-primary-700: hsl(292, 42%, 14%);
+  --clr-primary-400: hsl(292, 16%, 49%);
+  --clr-neutral-200: hsl(275, 100%, 97%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  
+  /* Initializing the font-weight */
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+}
+
+/* Josh Comeau css reset https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* 1. Use a more-intuitive box-sizing model. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+/* Typographic tweaks! 3. Add accessible line-height 4. Improve text rendering */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/* 6. Remove built-in form typography styles */
+input, button, textarea, select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Create a root stacking context */
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Custom styling starts from here */
+body {
+  background-color: var(--clr-neutral-200);
+  font-family: "Work Sans";
+}
+
+.bg-img {
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+  top: 150px;
+  left: 25vw;
+  right: 25vw;
+  background-color: var(--clr-neutral-100);
+  width: 50vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+  box-shadow: 10px 5px 25px hsla(292, 42%, 14%, 0.2);
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: var(--fw-bold);
+}
+
+.section-title img {
+  display: inline;
+}
+
+.questions {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.item__header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.item__header:hover {
+  color: var(--clr-primary-400);
+}
+
+.question-title {
+  font-size: 1.25rem;
+  font-weight: var(--fw-semi-bold);
+}
+
+.item p {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.icon-minus, .icon-plus {
+  transition: opacity 0.3s ease-out;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .container {
+    left: 10vw;
+    right: 10vw;
+    width: 80vw;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    top: 100px;
+    left: 5vw;
+    right: 5vw;
+    width: 90vw;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .question-title {
+    font-size: 1rem;
+  }
+}
